@@ -1,0 +1,85 @@
+/* 全局样式 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 整体布局 */
+#app {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* 侧边栏样式 */
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.sidebar li:hover {
+  background-color: #ddd;
+}
+
+.sidebar li.active {
+  background-color: #ccc;
+}
+
+/* 文章样式 */
+.content h1 {
+  margin-top: 0;
+}
+
+.content button {
+  margin-bottom: 10px;
+}
+
+.content h2 {
+  margin-top: 20px;
+}
+
+/* 编辑框样式 */
+.editor {
+  display: none;
+  margin-top: 20px;
+}
+
+.editor h2 {
+  margin-top: 0;
+}
+
+.custom-editor input,
+.custom-editor textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* 特效 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
