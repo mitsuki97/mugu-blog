@@ -1,78 +1,17 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <title>BlogApp</title>
-  <script src="https://unpkg.com/vue@next"></script>
-  <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
-  <script>
-app.use(window.ElementPlus);
-app.mount('#app');
-  </script>  
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-  
-  <div id="app">
-    <div class="sidebar">
-      <ul>
-        <li @click="currentTab = 'articles'" :class="{ active: currentTab === 'articles' }">文章</li>
-        <li @click="currentTab = 'menu'" :class="{ active: currentTab === 'menu' }">菜单</li>
-        <li @click="currentTab = 'themes'" :class="{ active: currentTab === 'themes' }">主题</li>
-        <li @click="currentTab = 'settings'" :class="{ active: currentTab === 'settings' }">设置</li>
-      </ul>
-    </div>
-    <div class="content">
-      <transition name="fade">
-        <div v-if="currentTab === 'articles'">
-          <h1>文章</h1>
-          <el-button @click="openEditor">新增博客</el-button>
-          <input type="file" id="importInput" @change="importData" accept=".json">
-          <button @click="openImportDialog">导入</button>
-          <button @click="exportData">导出</button>
-
-          <div v-if="isEditing" class="custom-editor">
-            <h2>编辑博客</h2>
-            <input v-model="selectedPost.title" placeholder="标题">
-            <textarea v-model="selectedPost.content" placeholder="内容"></textarea>
-            <button @click="savePost">保存</button>
-          </div>
-
-          <div v-else>
-            <div v-for="post in posts" :key="post.id">
-              <h2 @click="editPost(post)">{{ post.title }}</h2>
-              <p>{{ post.content }}</p>
-              <hr>
-            </div>
-          </div>
-        </div>
-        <div v-if="currentTab === 'menu'">
-          <h1>菜单</h1>
-          <!-- 菜单内容 -->
-        </div>
-        <div v-if="currentTab === 'themes'">
-          <h1>主题</h1>
-          <!-- 主题设置 -->
-        </div>
-        <div v-if="currentTab === 'settings'">
-          <h1>设置</h1>
-          <!-- 其他设置 -->
-        </div>
-      </transition>
-    </div>
-    <div class="custom-editor" v-if="showEditor">
-      <h2>新增博客</h2>
-      <input v-model="newPost.title" placeholder="标题">
-      <textarea v-model="newPost.content" placeholder="内容"></textarea>
-      <button @click="savePost">保存</button>
-    </div>
-  </div>
-
-  <script src="app.js"></script>
-
-</body>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>
-
-
